@@ -65,7 +65,7 @@ while 100>i:
         z = z + 1
 
     # api-endpoint
-    URL = "http://localhost:5000/api/v1/resources/mutant"
+    URL = "http://134.209.126.163:5000/api/v1/resources/mutant"
 
     # defining a params dict for the parameters to be sent to the API
 

@@ -26,7 +26,6 @@ def stats_mutant():
     stats_classes = Stats()
     #verificaciones de ADN: {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
     result = stats_classes.return_dna_list()
-    print(result, file=sys.stderr)
 
     if result['result']:
         dna_status_human = int(result['dna_status_human'])
@@ -64,11 +63,9 @@ def api_mutant():
     # Function que valida que la cadena de ADN tenga la longitud y las letras correctas: devuelve True cuando tiene
     # el formato correcto y False cuando no
     result = mutant_classes.validate_adn_chain()
-    print("result mutant valida la cadena correcta", result, file=sys.stderr)
     if result:
         # funcion para validar si la en la BD ya tenemos dicha cadena de ADN salvada
         result = mutant_classes.validate_exist_dna()
-        print("result, validate_exist_dna ", result, file=sys.stderr)
         #Si es verdadera devolvemos el estatus, sino lo creamos
         if result['status'] == 0:
             response = app.response_class(
