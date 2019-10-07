@@ -21,7 +21,7 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-@app.route("/api/v1/resources/stats", methods=['GET'])
+@app.route("/stats/", methods=['GET'])
 def stats_mutant():
     stats_classes = Stats()
     #verificaciones de ADN: {“count_mutant_dna”:40, “count_human_dna”:100: “ratio”:0.4}
@@ -30,7 +30,7 @@ def stats_mutant():
     if result['result']:
         dna_status_human = int(result['dna_status_human'])
         dna_status_mutant = int(result['dna_status_mutant'])
-        ratio =float(dna_status_mutant/dna_status_human)
+        ratio = round(float(dna_status_mutant/dna_status_human), 2)
 
         dict_response = {"count_mutant_dna": dna_status_mutant, "count_human_dna": dna_status_human, "ratio": ratio}
         response = app.response_class(
@@ -48,7 +48,7 @@ def stats_mutant():
         return response
 
 
-@app.route("/api/v1/resources/mutant", methods=['POST'])
+@app.route("/mutant/", methods=['POST'])
 def api_mutant():
     try:
         content = request.get_json()
