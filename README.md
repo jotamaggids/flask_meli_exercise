@@ -21,10 +21,10 @@ http://localhost:5000/mutant/
 
 Test production api in your browser by navigating to
 ```
-http://134.209.126.163:5000/mutant/
+http://134.209.124.235:5000/mutant/
 ```
 
 Check stats in production api in your browser by navigating to
 ```
-http://134.209.126.163:5000/stats/
+http://134.209.124.235:5000/stats/
 ```
